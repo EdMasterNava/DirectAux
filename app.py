@@ -17,9 +17,10 @@ with gr.Blocks() as demo:
     )
     audio_file = gr.Audio(type="filepath")
     prompt = gr.Textbox(label='Prompt')
+    image = gr.Image()
     result = gr.Video(label='Result')
      
     b1 = gr.Button("Create Visual")
-    b1.click(fn=audio_to_visual, inputs=[audio_file, prompt] , outputs=result)
+    b1.click(fn=audio_to_visual, inputs=[audio_file, prompt] , outputs=[image, result])
 
 demo.launch()
